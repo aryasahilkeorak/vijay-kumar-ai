@@ -495,6 +495,9 @@ img {
   border-radius: 50%;
   border: 1px solid var(--border-hover);
   animation: ringPulse 3s ease-in-out infinite;
+  height: 140px;
+  width: 140px;
+  margin: 0 auto;
 }
 
 @keyframes ringPulse {
@@ -1056,6 +1059,11 @@ img {
   .footer__inner {
     flex-direction: column;
     text-align: center;
+  }
+
+  .company__compliance{
+    padding: 1rem 1rem;
+    justify-content: center;
   }
 
   .education__card {
