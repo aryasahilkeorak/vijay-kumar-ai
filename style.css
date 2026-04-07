@@ -177,6 +177,7 @@ img {
   cursor: pointer;
   color: var(--text-muted);
   transition: var(--transition);
+  margin-left: 2rem;
 }
 
 .theme-toggle:hover {
@@ -963,6 +964,10 @@ img {
    RESPONSIVE
 =========================== */
 @media (max-width: 900px) {
+  .theme-toggle {
+    margin-left: 1rem;
+  }
+
   .about__grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -990,6 +995,10 @@ img {
 @media (max-width: 680px) {
   .nav__links {
     display: none;
+  }
+
+  .theme-toggle {
+    margin-left: 0rem;
   }
 
   .nav__links.open {
