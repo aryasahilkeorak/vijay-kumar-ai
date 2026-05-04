@@ -91,14 +91,13 @@ img {
   display: flex;
   align-items: center;
   background: transparent;
-  transition: background var(--transition), backdrop-filter var(--transition), border-bottom var(--transition);
+  transition: background var(--transition), backdrop-filter var(--transition);
 }
 
 .nav.scrolled {
   background: rgba(10, 12, 16, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
 }
 
 [data-theme="light"] .nav.scrolled {
