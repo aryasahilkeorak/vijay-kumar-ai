@@ -91,7 +91,7 @@ img {
   display: flex;
   align-items: center;
   background: transparent;
-  transition: background var(--transition), backdrop-filter var(--transition);
+  transition: background var(--transition), backdrop-filter var(--transition), border-bottom var(--transition);
 }
 
 .nav.scrolled {
