@@ -1,6 +1,4 @@
-/* ===========================
-   THEME TOGGLE
-=========================== */
+/*  THEME TOGGLE */
 const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 
@@ -15,9 +13,7 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', next);
 });
 
-/* ===========================
-   NAV SCROLL EFFECT
-=========================== */
+/* NAV SCROLL EFFECT */
 const nav = document.getElementById('nav');
 
 const handleScroll = () => {
@@ -30,9 +26,7 @@ const handleScroll = () => {
 
 window.addEventListener('scroll', handleScroll, { passive: true });
 
-/* ===========================
-   MOBILE NAV
-=========================== */
+/* MOBILE NAV */
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 
@@ -47,9 +41,7 @@ navLinks.querySelectorAll('a').forEach(link => {
   });
 });
 
-/* ===========================
-   REVEAL ON SCROLL
-=========================== */
+/*  REVEAL ON SCROLL */
 const revealElements = document.querySelectorAll('.reveal');
 
 const revealObserver = new IntersectionObserver(
@@ -69,9 +61,7 @@ const revealObserver = new IntersectionObserver(
 
 revealElements.forEach((el) => revealObserver.observe(el));
 
-/* ===========================
-   SMOOTH SCROLL FOR NAV
-=========================== */
+/*   SMOOTH SCROLL FOR NAV */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
@@ -84,9 +74,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-/* ===========================
-   HERO PARALLAX (subtle)
-=========================== */
+/*   HERO PARALLAX (subtle) */
 const hero = document.querySelector('.hero');
 const orb1 = document.querySelector('.hero__orb--1');
 const orb2 = document.querySelector('.hero__orb--2');
@@ -103,9 +91,7 @@ if (hero && orb1 && orb2) {
   }, { passive: true });
 }
 
-/* ===========================
-   ACTIVE NAV HIGHLIGHTING
-=========================== */
+/*   ACTIVE NAV HIGHLIGHTING */
 const sections = document.querySelectorAll('section[id]');
 const navLinksList = document.querySelectorAll('.nav__links a');
 
@@ -127,3 +113,24 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
+
+// total experince counter animation
+(function () {
+  const totalYears = new Date().getFullYear() - 2008;
+  const el = document.getElementById('yearsCounter');
+  if (!el) return;
+  const obs = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    let val = 0;
+    const step = totalYears / (1600 / 16);
+    const tick = () => {
+      val += step;
+      if (val < totalYears) { el.textContent = Math.floor(val) + '+'; requestAnimationFrame(tick); }
+      else el.textContent = totalYears + '+';
+    };
+    requestAnimationFrame(tick);
+  }, { threshold: 0.5 });
+  obs.observe(el);
+})();
+
